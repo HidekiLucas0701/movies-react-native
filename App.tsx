@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import MainTabs from './src/components/MainTabs';
 import MovieDetailsScreen from './src/screens/MovieDetailsScreen';
+import MovieFormScreen from './src/screens/MovieFormScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,19 @@ export default function App() {
               <Button
                 title="Editar"
                 onPress={() => navigation.navigate("MovieFormScreen")}
+              />
+            )
+          })}
+        />
+        <Stack.Screen
+          name='MovieFormScreen'
+          component={MovieFormScreen}
+          options={({ navigation }) => ({
+            headerBackButtonDisplayMode: "minimal",
+            headerRight: () => (
+              <Button
+                title="Voltar para o início"
+                onPress={() => navigation.popToTop()}
               />
             )
           })}
